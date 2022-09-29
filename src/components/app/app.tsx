@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import './components/app/App.css';
+import InputFieldWrapper from "../input-field-with-slider";
+import {AppWrapper, MainWrapper, Header, DataEntrySection, ResultSection} from "./styles";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const handleChange = (e: any) => {
+
+    }
+    return (
+        <AppWrapper>
+            <MainWrapper>
+                <Header>Рассчитайте стоимость автомобиля в лизинг</Header>
+                <DataEntrySection>
+                    <InputFieldWrapper
+                        label={"Стоимость автомобиля"}
+                        value={3300000}
+                        inputName={"costCar"}
+                        unitMeasurement={"₽"}
+                        onChange={handleChange}/>
+                    <InputFieldWrapper
+                        label={"Первоначальный взнос"}
+                        value={42000}
+                        inputName={"downPayment"}
+                        unitMeasurement={"13%"}
+                        onChange={handleChange}/>
+                    <InputFieldWrapper
+                        label={"Срок лизинга"}
+                        value={60}
+                        inputName={"leasingPeriod"}
+                        unitMeasurement={"мес."}
+                        onChange={handleChange}/>
+                </DataEntrySection>
+                <ResultSection>
+                    <article>4534534</article>
+                    <article>4534534</article>
+                    <button>Оформить</button>
+                </ResultSection>
+            </MainWrapper>
+        </AppWrapper>
+    );
 }
 
 export default App;
