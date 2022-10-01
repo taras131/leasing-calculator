@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import InputFieldWrapper from "../input-field-with-slider";
-import {AppWrapper, MainWrapper, Header, DataEntrySection, ResultSection} from "./styles";
+import {AppWrapper} from "./styles";
+import ResultItem from "../result-item";
 
 const App = () => {
-    enum inputNames {costCar = "costCar", downPayment="downPayment", leasingPeriod="leasingPeriod"}
+    enum inputNames {costCar = "costCar", downPayment = "downPayment", leasingPeriod = "leasingPeriod"}
+
     const [calculatorState, setCalculatorState] = useState({
         costCar: {
             label: "Стоимость автомобиля",
@@ -31,8 +33,8 @@ const App = () => {
         },
     })
     const handleChange = (name: "costCar" | "downPayment" | "leasingPeriod", value: number) => {
-       // if(value > calculatorState[name].maxValue) value = calculatorState[name].maxValue
-      //  if(value < calculatorState[name].minValue) value = calculatorState[name].minValue
+        // if(value > calculatorState[name].maxValue) value = calculatorState[name].maxValue
+        //  if(value < calculatorState[name].minValue) value = calculatorState[name].minValue
         if (name === calculatorState.costCar.name) {
             setCalculatorState({...calculatorState, [name]: {...calculatorState.costCar, value: value}})
         }
@@ -49,11 +51,18 @@ const App = () => {
             })
         }
     }
+    const calculateMonthlyPayment = () => {
+        return Math.floor((calculatorState.costCar.value - calculatorState.downPayment.value) *
+            ((0.035 * Math.pow((1 + 0.035), calculatorState.leasingPeriod.value)) / (Math.pow((1 + 0.035), calculatorState.leasingPeriod.value) - 1)));
+    }
+    const calculateTotalSum = () => {
+        return Math.floor(calculatorState.downPayment.value + calculatorState.leasingPeriod.value * calculateMonthlyPayment())
+    }
     return (
         <AppWrapper>
-            <MainWrapper>
-                <Header>Рассчитайте стоимость автомобиля в лизинг</Header>
-                <DataEntrySection>
+            <main>
+                <h1>Рассчитайте стоимость автомобиля в лизинг</h1>
+                <section className="calculator_section">
                     <InputFieldWrapper
                         label={calculatorState.costCar.label}
                         value={calculatorState.costCar.value}
@@ -79,13 +88,13 @@ const App = () => {
                         inputName={calculatorState.leasingPeriod.name}
                         unitMeasurement={calculatorState.leasingPeriod.unitMeasurement}
                         onChange={handleChange}/>
-                </DataEntrySection>
-                <ResultSection>
-                    <article>4534534</article>
-                    <article>4534534</article>
+                </section>
+                <section className="calculator_section">
+                    <ResultItem label={"Сумма договора лизинга"} value={calculateTotalSum()}/>
+                    <ResultItem label={"Ежемесячный платеж от"} value={calculateMonthlyPayment()}/>
                     <button>Оформить</button>
-                </ResultSection>
-            </MainWrapper>
+                </section>
+            </main>
         </AppWrapper>
     );
 }

@@ -25,11 +25,7 @@ const InputFieldWithSlider: FC<IInputFieldWithSlider> = ({
                                                              costCar
                                                          }) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (costCar) {
-
-        } else {
-            onChange(inputName, +e.target.value)
-        }
+        onChange(inputName, +e.target.value)
     }
     return (
         <InputFieldWrapper>
