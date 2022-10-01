@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import InputFieldWrapper from "../input-field-with-slider";
 import {AppWrapper} from "./styles";
 import ResultItem from "../result-item";
+import Button from "../button";
 
 const App = () => {
     enum inputNames {costCar = "costCar", downPayment = "downPayment", leasingPeriod = "leasingPeriod"}
@@ -92,7 +93,7 @@ const App = () => {
                 <section className="calculator_section">
                     <ResultItem label={"Сумма договора лизинга"} value={calculateTotalSum()}/>
                     <ResultItem label={"Ежемесячный платеж от"} value={calculateMonthlyPayment()}/>
-                    <button>Оформить</button>
+                    <Button text="Оформить" isLoading={true}/>
                 </section>
             </main>
         </AppWrapper>
