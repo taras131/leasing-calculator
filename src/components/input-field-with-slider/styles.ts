@@ -5,7 +5,7 @@ export const InputFieldWrapper = styled.article`
 `
 export const Label = styled.label`
   font-family: 'Gilroy';
-  float:left;
+  float: left;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -25,6 +25,18 @@ export const Input = styled.input`
   line-height: 36px;
   color: #575757;
   outline: none;
-  border: none;
+  border: 2px solid transparent;
   outline-offset: 0;
+  box-sizing: border-box;
+
+  &:focus {
+    border: 2px solid #F3F3F4;
+    background-color: white;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `

@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {UnitMeasurementWrapper} from "./style"
+import {UnitMeasurementWrapper} from "./styles"
 
 interface IUnitMeasurement {
     unitMeasurement: string
