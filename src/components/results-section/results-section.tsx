@@ -13,7 +13,7 @@ const ResultsSection = () => {
         <SectionWrapper>
             <ResultItem label={"Сумма договора лизинга"} value={getValueWithSpace(totalSum)}/>
             <ResultItem label={"Ежемесячный платеж от"} value={getValueWithSpace(monthlyPayment)}/>
-            <Button text="Оформить" isLoading={true}/>
+            <Button text="Оформить" />
         </SectionWrapper>
     );
 };

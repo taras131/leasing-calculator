@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
-export const ButtonWrapper = styled.button`
+interface IButtonWrapper {
+    events: string;
+}
+
+export const ButtonWrapper = styled.button<IButtonWrapper>`
   width: 100%;
-  padding: 14px 0;
+  padding: 16px 0;
   text-align: center;
   font-family: 'Nekst-Black';
   font-style: normal;
@@ -11,27 +15,13 @@ export const ButtonWrapper = styled.button`
   line-height: 36px;
   color: #FFFFFF;
   border: none;
-  cursor: pointer;
   background-color: #FF9514;
   border-radius: 40px;
   transition-property: background-color;
   transition-duration: 0.2s;
+  cursor: pointer;
+  pointer-events: ${props => props.events};
 
-  &:hover {
-    background-color: #111111;
-  }
-
-  &:active {
-    background-color: #575757;
-  }
-
-  &:disabled {
-    background: rgba(255, 149, 20, 0.4);
-  }
-
-  & [disabled]:hover {
-    pointer-events: none;
-  }
   @keyframes rotating {
     from {
       -ms-transform: rotate(0deg);
@@ -48,6 +38,7 @@ export const ButtonWrapper = styled.button`
       transform: rotate(360deg);
     }
   }
+
   img {
     width: 21px;
     height: 21px;
@@ -57,7 +48,17 @@ export const ButtonWrapper = styled.button`
     -o-animation: rotating 2s linear infinite;
     animation: rotating 2s linear infinite;
   }
-  & .no_hover:hover {
-    pointer-events: none;
+
+  &:hover {
+    background-color: #111111;
+  }
+
+  &:active {
+    background-color: #575757;
+    cursor: pointer;
+  }
+
+  &:disabled {
+    background: rgba(255, 149, 20, 0.4);
   }
 `

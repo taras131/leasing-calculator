@@ -17,3 +17,8 @@ export interface IInitialState {
     downPayment: IInputField,
     leasingPeriod: IInputField,
 }
+
+export interface IOnChangePayload {
+    name: inputNames
+    value: number
+}
