@@ -1,7 +1,13 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {fetchForm} from './thunk';
-import {inputLabels, inputNames, inputUnitMeasurements} from "../../utils/const";
-import {IInitialState} from "../../models/calculator";
+import {
+    COST_CAR_INITIAL_VALUE, COST_CAR_MAX_VALUE,
+    COST_CAR_MIN_VALUE, DOWN_PAYMENT_INITIAL_VALUE, DOWN_PAYMENT_MAX_VALUE, DOWN_PAYMENT_MIN_VALUE,
+    inputLabels,
+    inputNames,
+    inputUnitMeasurements, LEASING_PERIOD_INITIAL_VALUE, LEASING_PERIOD_MAX_VALUE, LEASING_PERIOD_MIN_VALUE
+} from "../../utils/const";
+import {IInitialState, IOnChangePayload} from "../../models/calculator";
 
 
 const initialState: IInitialState = {
@@ -11,32 +17,27 @@ const initialState: IInitialState = {
     costCar: {
         label: inputLabels.costCar,
         name: inputNames.costCar,
-        value: 3300000,
-        minValue: 1000000,
-        maxValue: 6000000,
+        value: COST_CAR_INITIAL_VALUE,
+        minValue: COST_CAR_MIN_VALUE,
+        maxValue: COST_CAR_MAX_VALUE,
         unitMeasurement: inputUnitMeasurements.costCar
     },
     downPayment: {
         label: inputLabels.downPayment,
         name: inputNames.downPayment,
-        value: 13,
-        minValue: 10,
-        maxValue: 60,
+        value: DOWN_PAYMENT_INITIAL_VALUE,
+        minValue: DOWN_PAYMENT_MIN_VALUE,
+        maxValue: DOWN_PAYMENT_MAX_VALUE,
         unitMeasurement: inputUnitMeasurements.downPayment
     },
     leasingPeriod: {
         label: inputLabels.leasingPeriod,
         name: inputNames.leasingPeriod,
-        value: 60,
-        minValue: 1,
-        maxValue: 60,
+        value: LEASING_PERIOD_INITIAL_VALUE,
+        minValue: LEASING_PERIOD_MIN_VALUE,
+        maxValue: LEASING_PERIOD_MAX_VALUE,
         unitMeasurement: inputUnitMeasurements.leasingPeriod
     },
-}
-
-interface IOnChangePayload {
-    name: inputNames
-    value: number
 }
 
 export const calculatorSlice = createSlice({

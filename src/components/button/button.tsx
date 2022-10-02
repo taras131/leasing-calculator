@@ -9,8 +9,10 @@ interface IButton {
 }
 
 const Button: FC<IButton> = ({text, isDisable, isLoading}) => {
+    let events = "auto"
+    if(isDisable || isLoading) events = "none"
     return (
-        <ButtonWrapper disabled={isDisable} className={"no_hover"}>
+        <ButtonWrapper disabled={isDisable} events={events}>
             {isLoading
                 ? (<img src={loadingIcon} alt="loading"/>)
                 : text}
