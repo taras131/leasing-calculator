@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {ButtonWrapper} from "./styles";
-import loadingIcon from "../../assets/ellipse.png"
+import loadingIcon from "../../assets/img/ellipse.png"
 
 interface IButton {
     text: string

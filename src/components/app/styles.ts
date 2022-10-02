@@ -16,12 +16,12 @@ export const AppWrapper = styled.div`
 
   h1 {
     text-align: left;
+    font-family: "Nekst";
+    font-style: normal;
+    font-weight: 900;
+    font-size: 54px;
+    line-height: 90%;
+    white-space: pre;
   }
-
-  .calculator_section {
-    margin-top: 32px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 32px;
-  }
+  
 `
