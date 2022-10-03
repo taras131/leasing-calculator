@@ -46,7 +46,7 @@ npx eslint --fix .
 
 ## Деплой:
 
-- https://superlative-piroshki-7ba3e6.netlify.app/
+- https://mellifluous-lokum-8e9d69.netlify.app/
 
 ## Наименование файлов и папок:
 
