@@ -14,4 +14,4 @@ export const SectionWrapper = styled.section`
     grid-template-columns: 1fr;
     margin-top: 16px;
   }
-`
+`;

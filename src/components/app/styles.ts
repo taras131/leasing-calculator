@@ -20,7 +20,7 @@ export const AppWrapper = styled.div`
   
   h1 {
     text-align: left;
-    font-family: "Nekst";
+    font-family: 'Nekst-Black';
     font-weight: 900;
     font-size: 54px;
     line-height: 90%;
@@ -38,4 +38,4 @@ export const AppWrapper = styled.div`
       font-size: 34px;
     }
   }
-`
+`;

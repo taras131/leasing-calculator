@@ -1,11 +1,11 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect, useState} from "react";
 import {InputFieldWrapper, Input} from "./styles";
 import UnitMeasurement from "./unit-measurement";
 import Slider from "./slider";
 import {IInputField} from "../../../models/calculator";
 import {inputUnitMeasurements} from "../../../utils/const";
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
-import {getCostCarValue} from "../../../store/calculator/selectors";
+import {getCostCarValue, getIsLoading} from "../../../store/calculator/selectors";
 import {onInputChange} from "../../../store/calculator/slice";
 import {getValueWithoutSpace, getValueWithSpace} from "../../../utils/services";
 
@@ -20,55 +20,57 @@ const InputFieldWithSlider: FC<IInputFieldWithSlider> = ({
                                                              minValue,
                                                              maxValue,
                                                              unitMeasurement,
-                                                             isDisable = false
+                                                             isDisable = false,
                                                          }) => {
-    const dispatch = useAppDispatch()
-    const [isFocus, setIsFocus] = useState(false)
-    const [currentValue, setCurrentValue] = useState(value)
-    const costCarValue = useAppSelector(state => getCostCarValue(state))
+    const dispatch = useAppDispatch();
+    const [isFocus, setIsFocus] = useState(false);
+    const [currentValue, setCurrentValue] = useState(value);
+    const costCarValue = useAppSelector(state => getCostCarValue(state));
+    const isLoading = useAppSelector(state => getIsLoading(state));
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        let newValue = getValueWithoutSpace(e.target.value)
+        const newValue = getValueWithoutSpace(e.target.value);
         if (newValue >= 0 && newValue < 10000000000) {
             if (isFocus) {
-                setCurrentValue(newValue)
+                setCurrentValue(newValue);
             } else {
-                dispatch(onInputChange({name, value: newValue}))
+                dispatch(onInputChange({name, value: newValue}));
             }
         }
-    }
+    };
     const handleFocus = () => {
-        setIsFocus(true)
-    }
+        setIsFocus(true);
+    };
     const handleBlur = () => {
-        setIsFocus(false)
-        let newValue = currentValue
-        if (newValue > maxValue) newValue = maxValue
-        if (newValue < minValue) newValue = minValue
-        setCurrentValue(newValue)
-        dispatch(onInputChange({name, value: newValue}))
-    }
+        setIsFocus(false);
+        let newValue = currentValue;
+        if (newValue > maxValue) newValue = maxValue;
+        if (newValue < minValue) newValue = minValue;
+        setCurrentValue(newValue);
+        dispatch(onInputChange({name, value: newValue}));
+    };
     const handleKeyPress = (e: any) => {
-        if (e.key === 'Enter') {
+        if (e.key === "Enter") {
             e.preventDefault();
             e.target.blur();
         }
-    }
+    };
     const getShowValue = () => {
-        let showValue
+        let showValue;
         if (unitMeasurement === inputUnitMeasurements.downPayment) {
             if (isFocus) {
-                showValue = currentValue
+                showValue = currentValue;
             } else {
-                showValue = getValueWithSpace(Math.floor(value * costCarValue / 100)) + " " + inputUnitMeasurements.costCar
+                showValue = getValueWithSpace(Math.floor(value * costCarValue / 100))
+                    + " " + inputUnitMeasurements.costCar;
             }
         } else {
-            showValue = getValueWithSpace(currentValue)
+            showValue = getValueWithSpace(currentValue);
         }
-        return showValue
-    }
+        return showValue;
+    };
     useEffect(() => {
-        setCurrentValue(value)
-    }, [value])
+        setCurrentValue(value);
+    }, [value]);
     return (
         <InputFieldWrapper>
             <label htmlFor={name}>{label}</label>
@@ -80,11 +82,17 @@ const InputFieldWithSlider: FC<IInputFieldWithSlider> = ({
                    onFocus={handleFocus}
                    onBlur={handleBlur}
                    onKeyPress={handleKeyPress}
-                   disabled={isDisable}/>
-            <UnitMeasurement unitMeasurement={unitMeasurement === inputUnitMeasurements.downPayment
-                ? value + unitMeasurement
-                : unitMeasurement}/>
-            <Slider value={currentValue} onChange={handleChange} minValue={minValue} maxValue={maxValue}/>
+                   disabled={isDisable || isLoading}/>
+            <UnitMeasurement isLoading={isLoading}
+                             unitMeasurement={unitMeasurement === inputUnitMeasurements.downPayment
+                                 ? value + unitMeasurement
+                                 : unitMeasurement}/>
+            <Slider
+                value={currentValue}
+                onChange={handleChange}
+                minValue={minValue}
+                maxValue={maxValue}
+                isLoading={isLoading}/>
         </InputFieldWrapper>
     );
 };

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface IButtonWrapper {
-    events: string;
+    notActive: boolean
 }
 
 export const ButtonWrapper = styled.button<IButtonWrapper>`
@@ -20,7 +20,6 @@ export const ButtonWrapper = styled.button<IButtonWrapper>`
   transition-property: background-color;
   transition-duration: 0.2s;
   cursor: pointer;
- 
 
   @keyframes rotating {
     from {
@@ -59,14 +58,17 @@ export const ButtonWrapper = styled.button<IButtonWrapper>`
 
   &:disabled {
     background: ${props => props.theme.colors.disableButtonBackground};
+    cursor: default;
   }
 
   @media ${props => props.theme.media.table} {
     font-size: 22px;
-   
   }
   @media ${props => props.theme.media.phone} {
     font-size: 22px;
-   
   }
-`
+  ${({notActive}) => notActive && `
+    pointer-events: none;
+    cursor: default;
+  `}
+`;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {AppWrapper} from "./styles";
 import InputsSection from "../inputs-section";
 import ResultsSection from "../results-section";
@@ -15,6 +15,6 @@ const App = () => {
             </main>
         </AppWrapper>
     );
-}
+};
 
 export default App;

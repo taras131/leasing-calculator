@@ -1,1 +1,1 @@
-export { default } from './input-field-with-slider';
+export { default } from "./input-field-with-slider";
