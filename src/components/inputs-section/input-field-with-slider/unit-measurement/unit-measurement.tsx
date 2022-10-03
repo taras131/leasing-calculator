@@ -7,9 +7,13 @@ interface IUnitMeasurement {
 
 const UnitMeasurement: FC<IUnitMeasurement> = ({unitMeasurement}) => {
     let backgroundColor = "none"
-    if (unitMeasurement.indexOf("%") !== -1) backgroundColor = "#EBEBEC"
+    let fontSize = "30px"
+    if (unitMeasurement.indexOf("%") !== -1) {
+        fontSize = "22px"
+        backgroundColor = "#EBEBEC"
+    }
     return (
-        <UnitMeasurementWrapper backgroundColor={backgroundColor}>
+        <UnitMeasurementWrapper backgroundColor={backgroundColor} fontSize={fontSize}>
             {unitMeasurement}
         </UnitMeasurementWrapper>
     );

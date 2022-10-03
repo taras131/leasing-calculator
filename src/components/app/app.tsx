@@ -7,11 +7,9 @@ const App = () => {
     return (
         <AppWrapper>
             <main>
-                <h1>
-                    Рассчитайте стоимость
-                    <br/>
-                    автомобиля в лизинг
-                </h1>
+                <div className="header_container">
+                    <h1>Рассчитайте стоимость автомобиля в лизинг</h1>
+                </div>
                 <InputsSection/>
                 <ResultsSection/>
             </main>
