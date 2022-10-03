@@ -1,11 +1,11 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {fetchForm} from './thunk';
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {fetchForm} from "./thunk";
 import {
     COST_CAR_INITIAL_VALUE, COST_CAR_MAX_VALUE,
     COST_CAR_MIN_VALUE, DOWN_PAYMENT_INITIAL_VALUE, DOWN_PAYMENT_MAX_VALUE, DOWN_PAYMENT_MIN_VALUE,
     inputLabels,
     inputNames,
-    inputUnitMeasurements, LEASING_PERIOD_INITIAL_VALUE, LEASING_PERIOD_MAX_VALUE, LEASING_PERIOD_MIN_VALUE
+    inputUnitMeasurements, LEASING_PERIOD_INITIAL_VALUE, LEASING_PERIOD_MAX_VALUE, LEASING_PERIOD_MIN_VALUE,
 } from "../../utils/const";
 import {IInitialState, IOnChangePayload} from "../../models/calculator";
 
@@ -20,7 +20,7 @@ const initialState: IInitialState = {
         value: COST_CAR_INITIAL_VALUE,
         minValue: COST_CAR_MIN_VALUE,
         maxValue: COST_CAR_MAX_VALUE,
-        unitMeasurement: inputUnitMeasurements.costCar
+        unitMeasurement: inputUnitMeasurements.costCar,
     },
     downPayment: {
         label: inputLabels.downPayment,
@@ -28,7 +28,7 @@ const initialState: IInitialState = {
         value: DOWN_PAYMENT_INITIAL_VALUE,
         minValue: DOWN_PAYMENT_MIN_VALUE,
         maxValue: DOWN_PAYMENT_MAX_VALUE,
-        unitMeasurement: inputUnitMeasurements.downPayment
+        unitMeasurement: inputUnitMeasurements.downPayment,
     },
     leasingPeriod: {
         label: inputLabels.leasingPeriod,
@@ -36,19 +36,19 @@ const initialState: IInitialState = {
         value: LEASING_PERIOD_INITIAL_VALUE,
         minValue: LEASING_PERIOD_MIN_VALUE,
         maxValue: LEASING_PERIOD_MAX_VALUE,
-        unitMeasurement: inputUnitMeasurements.leasingPeriod
+        unitMeasurement: inputUnitMeasurements.leasingPeriod,
     },
-}
+};
 
 export const calculatorSlice = createSlice({
-    name: 'calculator',
+    name: "calculator",
     initialState,
     reducers: {
         onInputChange(state, action: PayloadAction<IOnChangePayload>) {
             state[action.payload.name] = {
-                ...state[action.payload.name], value: action.payload.value
-            }
-        }
+                ...state[action.payload.name], value: action.payload.value,
+            };
+        },
     },
     extraReducers: {
         [fetchForm.pending.type]: (state) => {

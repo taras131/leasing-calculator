@@ -1,5 +1,5 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import calculatorReducer from './calculator/slice';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import calculatorReducer from "./calculator/slice";
 
 const rootReducer = combineReducers({
     calculator: calculatorReducer,
@@ -12,4 +12,4 @@ export const setupStore = () => {
 };
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;
-export type AppDispatch = AppStore['dispatch'];
+export type AppDispatch = AppStore["dispatch"];

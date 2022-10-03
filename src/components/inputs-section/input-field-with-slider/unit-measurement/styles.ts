@@ -3,6 +3,7 @@ import styled from "styled-components";
 interface IUnitMeasurementProps {
     backgroundColor: string
     fontSize: string
+    isLoading: boolean
 }
 
 export const UnitMeasurementWrapper = styled.div<IUnitMeasurementProps>`
@@ -22,4 +23,5 @@ export const UnitMeasurementWrapper = styled.div<IUnitMeasurementProps>`
   font-weight: 900;
   font-size: ${props => props.fontSize};
   line-height: 36px;
-`
+  opacity: ${props => props.isLoading ? "0.4" : "1"};
+`;

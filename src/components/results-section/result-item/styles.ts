@@ -38,4 +38,4 @@ export const ResultItemWrapper = styled.div`
       margin-top: 0;
     }
   }
-`
+`;

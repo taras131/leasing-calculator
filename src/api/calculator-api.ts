@@ -1,19 +1,14 @@
-
-
 export const fetchCalculatorData = async (calculatorData: any): Promise<any> => {
-    console.log(calculatorData)
     const res = await fetch(process.env.REACT_APP_API_URL+"", {
-        method: 'post',
+        method: "post",
         headers: {
-            'Content-Type': 'application/json;charset=utf-8'
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify(calculatorData)
-    })
-    console.log(res)
-    const decodedResponse = await res.json()
-    console.log(decodedResponse)
+        body: JSON.stringify(calculatorData),
+    });
+    const decodedResponse = await res.json();
     if (res.ok) {
-        return decodedResponse.user
+        return decodedResponse.user;
     }
-    throw new Error(decodedResponse.message)
-}
+    throw new Error(decodedResponse.message);
+};

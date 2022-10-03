@@ -1,1 +1,1 @@
-export {default} from "./inputs-section"
+export {default} from "./inputs-section";

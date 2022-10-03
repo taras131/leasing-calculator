@@ -10,7 +10,7 @@ export const InputFieldWrapper = styled.article`
     font-size: 16px;
     line-height: 20px;
   }
-`
+`;
 
 export const Input = styled.input`
   padding-left: 24px;
@@ -46,4 +46,4 @@ export const Input = styled.input`
     font-size: 22px;
   }
 
-`
+`;
