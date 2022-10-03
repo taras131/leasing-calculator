@@ -16,7 +16,7 @@ const Button: FC<IButton> = ({text,
     return (
         <ButtonWrapper
             disabled={isDisable}
-            notActive ={isLoading}
+            isLoading ={isLoading}
             onClick={handleClick}>
             {isLoading
                 ? (<img src={loadingIcon} alt="loading"/>)

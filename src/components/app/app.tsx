@@ -3,6 +3,7 @@ import InputsSection from "../inputs-section";
 import ResultsSection from "../results-section";
 import {AppWrapper} from "./styles";
 import {CALCULATOR_HEADER} from "../../utils/const";
+import Button from "../button";
 
 const App = () => {
     return (
@@ -13,6 +14,11 @@ const App = () => {
                 </div>
                 <InputsSection/>
                 <ResultsSection/>
+                <section className="demonstration_section">
+                    <Button text="Disabled" handleClick={() => {
+                        alert("try click disabled button");
+                    }} isDisable/>
+                </section>
             </main>
         </AppWrapper>
     );
