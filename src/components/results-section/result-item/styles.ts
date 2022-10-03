@@ -6,12 +6,11 @@ export const ResultItemWrapper = styled.div`
   color: ${props => props.theme.colors.text};
 
   p {
-    font-family: 'Gilroy';
+    font-family: 'Gilroy',sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
-
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -20,7 +19,7 @@ export const ResultItemWrapper = styled.div`
   span {
     display: block;
     margin-top: 8px;
-    font-family: 'Nekst-Black';
+    font-family: 'Nekst' ,sans-serif;
     font-style: normal;
     font-weight: 900;
     font-size: 54px;

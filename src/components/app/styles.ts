@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const AppWrapper = styled.div`
-  text-align: center;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -11,7 +10,6 @@ export const AppWrapper = styled.div`
   main {
     max-width: 1440px;
     padding: 48px 44px;
-    
   }
 
   .header_container{
@@ -20,16 +18,18 @@ export const AppWrapper = styled.div`
   
   h1 {
     text-align: left;
-    font-family: 'Nekst-Black';
+    font-family: 'Nekst' ,sans-serif;
     font-weight: 900;
     font-size: 54px;
     line-height: 90%;
   }
+  
   @media ${props => props.theme.media.tablet} {
     main{
       padding: 48px 36px;
     }
   }
+  
   @media ${props => props.theme.media.phone} {
     main{
       padding: 48px 20px;

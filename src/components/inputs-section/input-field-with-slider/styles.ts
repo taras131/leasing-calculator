@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const InputFieldWrapper = styled.article`
   position: relative;
   label {
-    font-family: 'Gilroy';
+    font-family: 'Gilroy',sans-serif;
     float: left;
     font-style: normal;
     font-weight: 400;
@@ -19,7 +19,7 @@ export const Input = styled.input`
   background: ${props => props.theme.colors.secondary};
   border-radius: ${props => props.theme.size.borderRadius};
   width: 100%;
-  font-family: 'Nekst-Black';
+  font-family: 'Nekst' ,sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 30px;

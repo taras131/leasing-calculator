@@ -1,13 +1,13 @@
 import React, {FC, useEffect, useState} from "react";
-import {InputFieldWrapper, Input} from "./styles";
 import UnitMeasurement from "./unit-measurement";
 import Slider from "./slider";
-import {IInputField} from "../../../models/calculator";
-import {inputUnitMeasurements} from "../../../utils/const";
+import {InputFieldWrapper, Input} from "./styles";
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
 import {getCostCarValue, getIsLoading} from "../../../store/calculator/selectors";
+import {IInputField} from "../../../models/calculator";
 import {onInputChange} from "../../../store/calculator/slice";
 import {getValueWithoutSpace, getValueWithSpace} from "../../../utils/services";
+import {inputUnitMeasurements} from "../../../utils/const";
 
 interface IInputFieldWithSlider extends IInputField {
     isDisable?: boolean

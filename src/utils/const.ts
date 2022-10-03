@@ -16,6 +16,11 @@ export enum inputUnitMeasurements {
     leasingPeriod = "мес."
 }
 
+export const CALCULATOR_HEADER = "Рассчитайте стоимость автомобиля в лизинг";
+export const TOTAL_SUM_LABEL = "Сумма договора лизинга";
+export const MONTHLY_PAYMENT_LABEL = "Ежемесячный платеж от";
+export const SUBMIT_BUTTON_LABEL = "Оставить заявку";
+
 export const INTEREST_RATE = 0.035;
 
 export const COST_CAR_MIN_VALUE = 1000000;
@@ -29,4 +34,6 @@ export const DOWN_PAYMENT_INITIAL_VALUE = 13;
 export const LEASING_PERIOD_MIN_VALUE = 1;
 export const LEASING_PERIOD_MAX_VALUE = 60;
 export const LEASING_PERIOD_INITIAL_VALUE = 60;
+
+
 

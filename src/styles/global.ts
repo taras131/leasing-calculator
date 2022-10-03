@@ -1,9 +1,11 @@
 import {createGlobalStyle} from "styled-components";
 
 export const Global = createGlobalStyle`
+
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-family: 'Nekst', sans-serif;
   }
 
   * {
@@ -16,12 +18,12 @@ export const theme = {
     colors: {
         primary: "#FF9514",
         secondary: "#F3F3F4",
+        darkSecondary: "#EBEBEC",
         white: "#ffff",
         hover: "#111111",
         active: "#575757",
         disableButtonBackground: "rgba(255, 149, 20, 0.4)",
         text: "#575757",
-        disableInputBackground: "",
     },
     size: {
         borderRadius: "16px",

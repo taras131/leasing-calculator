@@ -1,8 +1,9 @@
 import React from "react";
-import {SectionWrapper} from "./styles";
 import ResultItem from "./result-item";
 import Button from "../button";
+import {SectionWrapper} from "./styles";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {fetchForm} from "../../store/calculator/thunk";
 import {
     getCostCarValue,
     getDownPaymentValue,
@@ -11,7 +12,8 @@ import {
     getTotalSum,
 } from "../../store/calculator/selectors";
 import {getValueWithSpace} from "../../utils/services";
-import {fetchForm} from "../../store/calculator/thunk";
+
+import {MONTHLY_PAYMENT_LABEL, SUBMIT_BUTTON_LABEL, TOTAL_SUM_LABEL} from "../../utils/const";
 
 const ResultsSection = () => {
     const dispatch = useAppDispatch();
@@ -26,9 +28,9 @@ const ResultsSection = () => {
     };
     return (
         <SectionWrapper>
-            <ResultItem label={"Сумма договора лизинга"} value={getValueWithSpace(totalSum)}/>
-            <ResultItem label={"Ежемесячный платеж от"} value={getValueWithSpace(monthlyPayment)}/>
-            <Button text="Оформить" isLoading={isLoading} handleClick={handleClick}/>
+            <ResultItem label={TOTAL_SUM_LABEL} value={getValueWithSpace(totalSum)}/>
+            <ResultItem label={MONTHLY_PAYMENT_LABEL} value={getValueWithSpace(monthlyPayment)}/>
+            <Button text={SUBMIT_BUTTON_LABEL} isLoading={isLoading} handleClick={handleClick}/>
         </SectionWrapper>
     );
 };

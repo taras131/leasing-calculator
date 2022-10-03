@@ -7,14 +7,10 @@ interface IUnitMeasurement {
 }
 
 const UnitMeasurement: FC<IUnitMeasurement> = ({unitMeasurement, isLoading}) => {
-    let backgroundColor = "none";
-    let fontSize = "30px";
-    if (unitMeasurement.indexOf("%") !== -1) {
-        fontSize = "22px";
-        backgroundColor = "#EBEBEC";
-    }
+    const isPercent = unitMeasurement.indexOf("%") !== -1;
     return (
-        <UnitMeasurementWrapper backgroundColor={backgroundColor} fontSize={fontSize} isLoading={isLoading}>
+        <UnitMeasurementWrapper isLoading={isLoading}
+                                isPercent={isPercent}>
             {unitMeasurement}
         </UnitMeasurementWrapper>
     );

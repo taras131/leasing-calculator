@@ -8,15 +8,15 @@ export const ButtonWrapper = styled.button<IButtonWrapper>`
   width: 100%;
   padding: 16px 0;
   text-align: center;
-  font-family: 'Nekst-Black';
+  font-family: 'Nekst', sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 30px;
   line-height: 36px;
-  color: ${props => props.theme.colors.white};;
+  color: ${props => props.theme.colors.white};
   border: none;
   background-color: ${props => props.theme.colors.primary};
-  border-radius: ${props => props.theme.size.buttonBorderRadius};;
+  border-radius: ${props => props.theme.size.buttonBorderRadius};
   transition-property: background-color;
   transition-duration: 0.2s;
   cursor: pointer;
@@ -63,9 +63,15 @@ export const ButtonWrapper = styled.button<IButtonWrapper>`
 
   @media ${props => props.theme.media.table} {
     font-size: 22px;
+    &:hover {
+      background-color: ${props => props.theme.colors.primary};
+    }
   }
   @media ${props => props.theme.media.phone} {
     font-size: 22px;
+    &:hover {
+      background-color: ${props => props.theme.colors.primary};
+    }
   }
   ${({notActive}) => notActive && `
     pointer-events: none;

@@ -1,8 +1,8 @@
 import React from "react";
+import InputFieldWithSlider from "./input-field-with-slider";
 import {SectionWrapper} from "./styles";
 import {useAppSelector} from "../../hooks/redux";
 import {getCostCar, getDownPayment, getLeasingPeriod} from "../../store/calculator/selectors";
-import InputFieldWithSlider from "./input-field-with-slider";
 
 const InputsSection = () => {
     const costCar = useAppSelector(state => getCostCar(state));
