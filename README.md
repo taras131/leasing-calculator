@@ -26,6 +26,12 @@ npm run start
 npm run build
 ```
 
+- unit тесты
+
+```bash
+npm run test
+```
+
 - запуск eslint
 
 ```bash

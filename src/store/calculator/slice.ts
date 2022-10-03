@@ -10,7 +10,7 @@ import {
 import {IInitialState, IOnChangePayload} from "../../models/calculator";
 
 
-const initialState: IInitialState = {
+export const initialState: IInitialState = {
     isLoading: false,
     error: null,
     serverResponseMessage: "",
@@ -40,7 +40,7 @@ const initialState: IInitialState = {
     },
 };
 
-export const calculatorSlice = createSlice({
+const calculatorSlice = createSlice({
     name: "calculator",
     initialState,
     reducers: {
