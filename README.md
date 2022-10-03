@@ -1,4 +1,4 @@
-# Link shortener
+# Leasing calculator
 
 Калькулятор лизинговых платежей
 
@@ -47,6 +47,11 @@ npx eslint --fix .
 ## Деплой:
 
 - https://mellifluous-lokum-8e9d69.netlify.app/
+
+## CI:
+При создании pull request и merge в main прогоняется:
+- билд приложения
+- unit тесты слайсов
 
 ## Наименование файлов и папок:
 
