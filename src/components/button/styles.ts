@@ -13,14 +13,14 @@ export const ButtonWrapper = styled.button<IButtonWrapper>`
   font-weight: 900;
   font-size: 30px;
   line-height: 36px;
-  color: #FFFFFF;
+  color: ${props => props.theme.colors.white};;
   border: none;
-  background-color: #FF9514;
-  border-radius: 40px;
+  background-color: ${props => props.theme.colors.primary};
+  border-radius: ${props => props.theme.size.buttonBorderRadius};;
   transition-property: background-color;
   transition-duration: 0.2s;
   cursor: pointer;
-  pointer-events: ${props => props.events};
+ 
 
   @keyframes rotating {
     from {
@@ -50,15 +50,23 @@ export const ButtonWrapper = styled.button<IButtonWrapper>`
   }
 
   &:hover {
-    background-color: #111111;
+    background-color: ${props => props.theme.colors.hover};
   }
 
   &:active {
-    background-color: #575757;
-    cursor: pointer;
+    background-color: ${props => props.theme.colors.active};
   }
 
   &:disabled {
-    background: rgba(255, 149, 20, 0.4);
+    background: ${props => props.theme.colors.disableButtonBackground};
+  }
+
+  @media ${props => props.theme.media.table} {
+    font-size: 22px;
+   
+  }
+  @media ${props => props.theme.media.phone} {
+    font-size: 22px;
+   
   }
 `

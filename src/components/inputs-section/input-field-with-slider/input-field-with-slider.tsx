@@ -9,14 +9,19 @@ import {getCostCarValue} from "../../../store/calculator/selectors";
 import {onInputChange} from "../../../store/calculator/slice";
 import {getValueWithoutSpace, getValueWithSpace} from "../../../utils/services";
 
-const InputFieldWithSlider: FC<IInputField> = ({
-                                                   label,
-                                                   name,
-                                                   value,
-                                                   minValue,
-                                                   maxValue,
-                                                   unitMeasurement,
-                                               }) => {
+interface IInputFieldWithSlider extends IInputField {
+    isDisable?: boolean
+}
+
+const InputFieldWithSlider: FC<IInputFieldWithSlider> = ({
+                                                             label,
+                                                             name,
+                                                             value,
+                                                             minValue,
+                                                             maxValue,
+                                                             unitMeasurement,
+                                                             isDisable = false
+                                                         }) => {
     const dispatch = useAppDispatch()
     const [isFocus, setIsFocus] = useState(false)
     const [currentValue, setCurrentValue] = useState(value)
@@ -74,7 +79,8 @@ const InputFieldWithSlider: FC<IInputField> = ({
                    onChange={handleChange}
                    onFocus={handleFocus}
                    onBlur={handleBlur}
-                   onKeyPress={handleKeyPress}/>
+                   onKeyPress={handleKeyPress}
+                   disabled={isDisable}/>
             <UnitMeasurement unitMeasurement={unitMeasurement === inputUnitMeasurements.downPayment
                 ? value + unitMeasurement
                 : unitMeasurement}/>

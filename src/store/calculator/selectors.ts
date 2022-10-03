@@ -17,10 +17,16 @@ export const getLeasingPeriod = (state: RootState): IInputField => {
 export const getCostCarValue = (state: RootState): number => {
     return state.calculator.costCar.value
 }
+export const getDownPaymentValue = (state: RootState): number => {
+    return state.calculator.downPayment.value
+}
+export const getLeasingPeriodValue = (state: RootState): number => {
+    return state.calculator.leasingPeriod.value
+}
 export const getMonthlyPayment = (state: RootState): number => {
-    const costCarValue = state.calculator.costCar.value
-    const downPaymentInRubles = state.calculator.downPayment.value * costCarValue / 100
-    const leasingPeriodValue = state.calculator.leasingPeriod.value
+    const costCarValue = getCostCarValue(state)
+    const downPaymentInRubles = getDownPaymentValue(state) * costCarValue / 100
+    const leasingPeriodValue = getLeasingPeriodValue(state)
     return Math.floor((costCarValue - downPaymentInRubles)
         * (INTEREST_RATE * Math.pow(1 + INTEREST_RATE, leasingPeriodValue))
         / (Math.pow(1 + INTEREST_RATE, leasingPeriodValue) - 1))

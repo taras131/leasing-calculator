@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
-interface  IUnitMeasurementProps {
+interface IUnitMeasurementProps {
     backgroundColor: string
+    fontSize: string
 }
 
 export const UnitMeasurementWrapper = styled.div<IUnitMeasurementProps>`
   padding-left: 17px;
   padding-right: 17px;
-  background-color: ${props => props.backgroundColor} ;
-  border-radius: 16px;
+  background-color: ${props => props.backgroundColor};
+  border-radius: ${props => props.theme.size.borderRadius};
   position: absolute;
   display: flex;
   align-items: center;
@@ -19,7 +20,6 @@ export const UnitMeasurementWrapper = styled.div<IUnitMeasurementProps>`
   font-family: 'Nekst-Black';
   font-style: normal;
   font-weight: 900;
-  font-size: 30px;
+  font-size: ${props => props.fontSize};
   line-height: 36px;
-
 `

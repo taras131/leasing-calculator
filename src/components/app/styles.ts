@@ -10,18 +10,32 @@ export const AppWrapper = styled.div`
 
   main {
     max-width: 1440px;
-    padding-left: 48px;
-    padding-right: 48px;
+    padding: 48px 44px;
+    
   }
 
+  .header_container{
+    max-width: 750px;
+  }
+  
   h1 {
     text-align: left;
     font-family: "Nekst";
-    font-style: normal;
     font-weight: 900;
     font-size: 54px;
     line-height: 90%;
-    white-space: pre;
   }
-  
+  @media ${props => props.theme.media.tablet} {
+    main{
+      padding: 48px 36px;
+    }
+  }
+  @media ${props => props.theme.media.phone} {
+    main{
+      padding: 48px 20px;
+    }
+    h1 {
+      font-size: 34px;
+    }
+  }
 `

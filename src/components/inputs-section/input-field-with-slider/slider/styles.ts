@@ -20,7 +20,7 @@ export const SliderWrapper = styled.div`
       appearance: none;
       width: 20px;
       height: 20px;
-      background: #FF9514;
+      background: ${props => props.theme.colors.primary};
       border-radius: 100%;
       cursor: pointer;
       -webkit-transition: .2s;
