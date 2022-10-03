@@ -12,28 +12,34 @@ export const AppWrapper = styled.div`
     padding: 48px 44px;
   }
 
-  .header_container{
+  .header_container {
     max-width: 750px;
   }
-  
+
   h1 {
     text-align: left;
-    font-family: 'Nekst' ,sans-serif;
+    font-family: 'Nekst', sans-serif;
     font-weight: 900;
     font-size: 54px;
     line-height: 90%;
   }
-  
+
+  .demonstration_section {
+    max-width: 350px;
+    padding: 40px 10px;
+  }
+
   @media ${props => props.theme.media.tablet} {
-    main{
+    main {
       padding: 48px 36px;
     }
   }
-  
+
   @media ${props => props.theme.media.phone} {
-    main{
+    main {
       padding: 48px 20px;
     }
+
     h1 {
       font-size: 34px;
     }
